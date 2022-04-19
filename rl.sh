@@ -8,7 +8,7 @@ then
 fi
 git add .
 git commit -m "${msg}"
-git pull origin -u ${branch}
+git pull -u origin ${branch}
 git push
 
 # sh rl.sh "msg"
