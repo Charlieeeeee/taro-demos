@@ -8,7 +8,7 @@ then
 fi
 git add .
 git commit -m "${msg}"
-git pull origin ${branch}
+wait=$("git pull origin ${branch}")
 git push -u origin ${branch}
 
 # sh rl.sh "msg"
