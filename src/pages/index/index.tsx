@@ -1,7 +1,9 @@
 import React, { useCallback } from "react";
+import Taro from "@tarojs/taro";
 import { View, Text, Button, Image } from "@tarojs/components";
 import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
 import logo from "./hook.png";
+import ScrollCom from './scroll-com'
 
 import './index.less'
 
@@ -23,6 +25,11 @@ const Index = () => {
     });
   }, [show, showToast]);
 
+  const handleGoSwiper = () => {
+    Taro.navigateTo({
+      url: '/pages/swiper/index'
+    })
+  }
   return (
     <View className='wrapper'>
       <Image className='logo' src={logo} />
@@ -41,6 +48,10 @@ const Index = () => {
       <Button className='button' onClick={handleModal}>
         使用Modal
       </Button>
+      <Button className='button' onClick={handleGoSwiper}>
+        go to swiper
+      </Button>
+      <ScrollCom />
     </View>
   );
 };

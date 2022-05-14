@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'scroll-com',
+  navigationBarTitleText: 'Taro-hooks',
   enableShareAppMessage: true,
 };

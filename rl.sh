@@ -8,8 +8,8 @@ then
 fi
 git add .
 git commit -m "${msg}"
-wait=$("git pull origin ${branch}")
-git push -u origin ${branch}
+git pull origin ${branch}
+git push
 
 # sh rl.sh "msg"
 # (添加权限)或者 chmod +x ./rl.sh 
