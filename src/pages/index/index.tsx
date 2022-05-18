@@ -9,7 +9,19 @@ import './index.less'
 
 const Index = () => {
   const env = useEnv();
-  const [_, { setTitle }] = useNavigationBar({ title: "Taro Hooks" });
+  // 获取当前实例
+  const curIns = Taro.getCurrentInstance() || Taro.Current
+  console.log('%ccurIns:', 'color: green;', curIns)
+
+  // 测试可选链
+  const optionalObj = { a: { b: 'has b'}}
+  console.log(optionalObj?.a?.b)
+  console.log(optionalObj?.b?.c)
+
+  // 设置当前页面标题
+  const { navigationBarTitleText } = curIns.page?.config || {}
+  const [_, { setTitle }] = useNavigationBar({ title: navigationBarTitleText });
+
   const [show] = useModal({
     title: "Taro Hooks!",
     showCancel: false,
@@ -42,7 +54,7 @@ const Index = () => {
         <Text className='label'>运行环境</Text>
         <Text className='note'>{env}</Text>
       </View>
-      <Button className='button' onClick={() => setTitle("Taro Hooks Nice!")}>
+      <Button className='button' onClick={() => setTitle("首页!")}>
         设置标题
       </Button>
       <Button className='button' onClick={handleModal}>

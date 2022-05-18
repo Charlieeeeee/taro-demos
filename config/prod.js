@@ -3,7 +3,18 @@ module.exports = {
     NODE_ENV: '"production"',
   },
   defineConstants: {},
-  mini: {},
+  mini: {
+    // 预渲染
+    prerender: {
+      include: [
+        'pages/mine/index'
+      ]
+    },
+    webpackChain (chain) {
+      chain.plugin('analyzer')
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
+    }
+  },
   h5: {
     /**
      * WebpackChain 插件配置

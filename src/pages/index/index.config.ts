@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'scroll-com',
+  navigationBarTitleText: '首页',
   enableShareAppMessage: true,
 };
